@@ -12,22 +12,31 @@ jobs:
       - name: Run a script
         run: echo "Running in Staging"
         
-  Development:
+  Quality_Assurance:
     runs-on: ubuntu-latest
-    environment: Development
+    environment: Quality_Assurance
     needs: Staging
     steps:
       - uses: actions/checkout@v2
       - name: Run a script
-        run: echo "Running in develpment"
+        run: echo "Running in production"
         
   Production:
     runs-on: ubuntu-latest
-    environment: Production
-    needs: Development
+    environment: Development
+    needs: Quality_Assurance
     steps:
       - uses: actions/checkout@v2
       - name: Run a script
-        run: echo "Deployed in Production"
+        run: echo "Running in production"
+        
+  Development:
+    runs-on: ubuntu-latest
+    environment: Production
+    needs: Production
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a script
+        run: echo "Deployed"
     
   
