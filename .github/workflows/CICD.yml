@@ -9,7 +9,7 @@ jobs:
     environment: Staging
     steps:
       - uses: actions/checkout@v2
-      - name: Run a script
+      - name: Compile
         run: Running in Staging
         
   Development:
@@ -17,15 +17,15 @@ jobs:
     environment: Development
     steps:
       - uses: actions/checkout@v2
-      - name: Run a script
-        run: Running in Staging
+      - name: Compile
+        run: Running in develpment
         
   Production:
     runs-on: ubuntu-latest
     environment: Production
     steps:
       - uses: actions/checkout@v2
-      - name: Run a script
-        run: Running in Staging
+      - name: Compile
+        run: Deployed in Production
     
   
